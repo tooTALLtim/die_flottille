@@ -17,15 +17,25 @@ class SpaceShip(models.Model):
     def __str__(self):
         return self.name
 
+
 class Crew(models.Model):
+
+    class StaffLevel(models.TextChoices):
+        CAPTAIN = 'captain', 'CAPTAIN'
+        EXECUTIVE_OFFICER = 'xo', 'XO'
+        UNASSIGNED = 'unassigned', 'UNASSIGNED'
+        #put more choices here after testing
+
 
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    nickname = models.CharField(max_length=100, default='no nicknames found')
+    nickname = models.CharField(max_length=100, default='no nicknames known')
     origin = models.CharField(max_length=50, default='unknown origin')
-    description = models.TextField()
-    captain = models.BooleanField(default=False)
-    executive_officer = models.BooleanField(default=False)
+    description = models.TextField(max_length=400)
+    staff_level = models.CharField(
+                    max_length=20, 
+                    choices=StaffLevel.choices, 
+                    default=StaffLevel.UNASSIGNED)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
