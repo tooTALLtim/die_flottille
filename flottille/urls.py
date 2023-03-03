@@ -1,6 +1,10 @@
 from django.urls import path
-from . import views
+from rest_framework_nested import routers
+from .views import *
 
-urlpatterns = [
-    path('hello/', views.hello)
-]
+router = routers.DefaultRouter()
+router.register('spaceships', SpaceShipViewSet)
+# router.register('hello/', hello(request))
+
+
+urlpatterns = router.urls
