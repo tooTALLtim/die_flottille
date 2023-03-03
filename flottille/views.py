@@ -6,3 +6,8 @@ from .serializers import *
 class SpaceShipViewSet(ModelViewSet):
     queryset = SpaceShip.objects.all()
     serializer_class = SpaceShipSerializer
+
+
+class CrewViewSet(ModelViewSet):
+    queryset = Crew.objects.all()
+    serializer_class = CrewSerializer
