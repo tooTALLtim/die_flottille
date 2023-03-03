@@ -16,3 +16,8 @@ class CrewViewSet(ModelViewSet):
 class MedinaDockViewSet(ModelViewSet):
     queryset = MedinaDock.objects.all()
     serializer_class = MedinaDockSerializer
+
+
+class MyShipViewSet(ModelViewSet):
+    queryset = MyShip.objects.all()
+    serializer_class = MyShipSerializer

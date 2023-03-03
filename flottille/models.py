@@ -12,6 +12,7 @@ class SpaceShip(models.Model):
     classification = models.CharField(max_length=50)
     armament = models.TextField(max_length=300)
     engine_type = models.TextField(max_length=60)
+    description = models.TextField(max_length=400)
 
 
     def __str__(self):

@@ -5,6 +5,12 @@ from .views import *
 router = routers.DefaultRouter()
 router.register('spaceships', SpaceShipViewSet)
 router.register('crews', CrewViewSet)
-router.register('medinadocks', MedinaDockViewSet)
+router.register('medina_docks', MedinaDockViewSet)
 
-urlpatterns = router.urls
+medina_dock = routers.NestedDefaultRouter(
+    router, 'medina_docks', lookup='medina_dock')
+medina_dock.register(
+    'my_ships', MyShipViewSet, basename='medina_dock-my_ships')
+
+
+urlpatterns = router.urls + medina_dock.urls
