@@ -13,11 +13,19 @@ class CrewViewSet(ModelViewSet):
     serializer_class = CrewSerializer
 
 
-class MedinaDockViewSet(ModelViewSet):
+class MedinaDockViewSet(ModelViewSet): #like Cart
     queryset = MedinaDock.objects.all()
     serializer_class = MedinaDockSerializer
 
 
-class MyShipViewSet(ModelViewSet):
-    queryset = MyShip.objects.all()
-    serializer_class = MyShipSerializer
+class MyShipViewSet(ModelViewSet): #like CartItem
+
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return AddMyShipSerializer
+        else:
+            return MyShipSerializer
+
+    def get_queryset(self):
+        return MyShip.objects \
+                .filter(medina_dock_id=self.kwargs['medina_dock_pk'])

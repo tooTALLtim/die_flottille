@@ -15,15 +15,25 @@ class CrewSerializer(serializers.ModelSerializer):
         fields = ['first_name', 'last_name', 'nickname', 'origin', 'description', 'staff_level']
 
 
-class MedinaDockSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = MedinaDock
-        fields = ['created_at']
-
-
-class MyShipSerializer(serializers.ModelSerializer):
+class MyShipSerializer(serializers.ModelSerializer): #like CartItem
 
     class Meta:
         model = MyShip
-        fields = ['ship_name', 'medina_dock', 'spaceship', 'captain', 'xo']
+        fields = ['id', 'ship_name', 'medina_dock', 'spaceship', 'captain', 'xo']
+
+
+class AddMyShipSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = MyShip
+        fields = ['id', 'ship_name', 'spaceship', 'captain', 'xo']
+
+
+class MedinaDockSerializer(serializers.ModelSerializer): #like Cart
+    id = serializers.UUIDField(read_only=True)
+    my_ship = MyShipSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = MedinaDock
+        fields = ['id', 'created_at', 'my_ship']
+

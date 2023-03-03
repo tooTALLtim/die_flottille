@@ -47,7 +47,7 @@ class Crew(models.Model):
         return f'{self.first_name} {self.last_name}'
 
 
-class MedinaDock(models.Model):
+class MedinaDock(models.Model): #like Cart
     """
     A place to dock your ship, assemble your crew, and more.
     """
@@ -55,7 +55,7 @@ class MedinaDock(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 
-class MyShip(models.Model):
+class MyShip(models.Model): #like CartItem  
     """
     The components of your Medina dock.
     """
