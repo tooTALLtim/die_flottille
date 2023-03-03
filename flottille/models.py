@@ -19,6 +19,10 @@ class SpaceShip(models.Model):
 
 
 class Crew(models.Model):
+    """
+    Those who choose to go into the darkness and 
+    inhospitable vacuum of space...don't like Earth.
+    """
 
     class StaffLevel(models.TextChoices):
         CAPTAIN = 'captain', 'CAPTAIN'
