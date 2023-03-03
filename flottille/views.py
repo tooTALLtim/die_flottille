@@ -25,6 +25,9 @@ class MyShipViewSet(ModelViewSet): #like CartItem
             return AddMyShipSerializer
         else:
             return MyShipSerializer
+    
+    def get_serializer_context(self):
+        return {'medina_dock_id': self.kwargs['medina_dock_pk']}
 
     def get_queryset(self):
         return MyShip.objects \

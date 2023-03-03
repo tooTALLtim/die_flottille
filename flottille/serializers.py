@@ -16,6 +16,9 @@ class CrewSerializer(serializers.ModelSerializer):
 
 
 class MyShipSerializer(serializers.ModelSerializer): #like CartItem
+    spaceship = SpaceShipSerializer()
+    captain = CrewSerializer()
+    xo = CrewSerializer()
 
     class Meta:
         model = MyShip
@@ -24,6 +27,19 @@ class MyShipSerializer(serializers.ModelSerializer): #like CartItem
 
 class AddMyShipSerializer(serializers.ModelSerializer):
 
+    def save(self, **kwargs):
+        medina_dock_id = self.context['medina_dock_id']
+        
+
+        # try:
+        #     my_ship = MyShip.objects.get(
+        #         medina_dock_id = medina_dock_id,
+        #     )
+        #     my_ship.save()
+        #     self.instance = my_ship
+        # except MyShip.DoesNotExist:
+            
+
     class Meta:
         model = MyShip
         fields = ['id', 'ship_name', 'spaceship', 'captain', 'xo']
@@ -31,9 +47,9 @@ class AddMyShipSerializer(serializers.ModelSerializer):
 
 class MedinaDockSerializer(serializers.ModelSerializer): #like Cart
     id = serializers.UUIDField(read_only=True)
-    my_ship = MyShipSerializer(many=True, read_only=True)
+    my_ships = MyShipSerializer(many=True, read_only=True)
 
     class Meta:
         model = MedinaDock
-        fields = ['id', 'created_at', 'my_ship']
+        fields = ['id', 'created_at', 'my_ships']
 

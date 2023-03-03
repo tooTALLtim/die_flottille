@@ -55,7 +55,7 @@ class MedinaDock(models.Model): #like Cart
     created_at = models.DateTimeField(auto_now_add=True)
 
 
-class MyShip(models.Model): #like CartItem  
+class MyShip(models.Model): #like CartItem
     """
     The components of your Medina dock.
     """
