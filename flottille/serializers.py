@@ -13,3 +13,10 @@ class CrewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Crew
         fields = ['first_name', 'last_name', 'nickname', 'origin', 'description', 'staff_level']
+
+
+class MedinaDockSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = MedinaDock
+        fields = ['created_at']

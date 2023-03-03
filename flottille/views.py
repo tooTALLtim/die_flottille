@@ -11,3 +11,8 @@ class SpaceShipViewSet(ModelViewSet):
 class CrewViewSet(ModelViewSet):
     queryset = Crew.objects.all()
     serializer_class = CrewSerializer
+
+
+class MedinaDockViewSet(ModelViewSet):
+    queryset = MedinaDock.objects.all()
+    serializer_class = MedinaDockSerializer

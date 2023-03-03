@@ -5,5 +5,6 @@ from .views import *
 router = routers.DefaultRouter()
 router.register('spaceships', SpaceShipViewSet)
 router.register('crews', CrewViewSet)
+router.register('medinadocks', MedinaDockViewSet)
 
 urlpatterns = router.urls
