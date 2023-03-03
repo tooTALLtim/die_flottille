@@ -12,7 +12,7 @@ class SpaceShip(models.Model):
     classification = models.CharField(max_length=50)
     armament = models.TextField(max_length=300)
     engine_type = models.TextField(max_length=60)
-    description = models.TextField(max_length=400)
+    description = models.TextField()
 
 
     def __str__(self):
@@ -26,6 +26,7 @@ class Crew(models.Model):
     """
 
     class StaffLevel(models.TextChoices):
+        ADMIRAL = 'admiral', 'ADMIRAL'
         CAPTAIN = 'captain', 'CAPTAIN'
         EXECUTIVE_OFFICER = 'xo', 'XO'
         UNASSIGNED = 'unassigned', 'UNASSIGNED'
