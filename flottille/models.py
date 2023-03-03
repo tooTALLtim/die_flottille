@@ -61,13 +61,13 @@ class MyShip(models.Model): #like CartItem
     """
     ship_name = models.CharField(max_length=60)
     medina_dock = models.ForeignKey(
-        MedinaDock, on_delete=models.CASCADE, related_name='medina_dock')
+        MedinaDock, on_delete=models.CASCADE, related_name='my_ships')
     spaceship = models.ForeignKey(
-        SpaceShip, on_delete=models.CASCADE, related_name='spaceship')
+        SpaceShip, on_delete=models.CASCADE, related_name='my_ships')
     captain = models.ForeignKey(
-        Crew, on_delete=models.CASCADE, related_name='captain')
+        Crew, on_delete=models.CASCADE, related_name='my_ships')
     xo = models.ForeignKey(
-        Crew, on_delete=models.CASCADE, related_name='xo')
+        Crew, on_delete=models.CASCADE, related_name='my_ships')
     
     def __str__(self):
         return self.ship_name
