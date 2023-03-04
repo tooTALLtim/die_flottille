@@ -25,19 +25,19 @@ class MyShipSerializer(serializers.ModelSerializer): #like CartItem
         fields = ['id', 'ship_name', 'medina_dock', 'spaceship', 'captain', 'xo']
 
 
-class AddMyShipSerializer(serializers.ModelSerializer):
+# class AddMyShipSerializer(serializers.ModelSerializer):
 
-    def save(self, **kwargs):
-        medina_dock_id = self.context['medina_dock_id']
+#     def save(self, **kwargs):
+#         medina_dock_id = self.context['medina_dock_id']
         
 
-        # try:
-        #     my_ship = MyShip.objects.get(
-        #         medina_dock_id = medina_dock_id,
-        #     )
-        #     my_ship.save()
-        #     self.instance = my_ship
-        # except MyShip.DoesNotExist:
+#         # try:
+#         #     my_ship = MyShip.objects.get(
+#         #         medina_dock_id = medina_dock_id,
+#         #     )
+#         #     my_ship.save()
+#         #     self.instance = my_ship
+#         # except MyShip.DoesNotExist:
             
 
     class Meta:
