@@ -24,6 +24,13 @@ class MyShipSerializer(WritableNestedModelSerializer): #like CartItem
     class Meta:
         model = MyShip
         fields = ['id', 'ship_name', 'medina_dock', 'spaceship', 'captain', 'xo']
+    
+    def validate_spaceship(self):
+        if not self.spaceship in SpaceShip.objects.all():
+            raise serializers.ValidationError(
+                "Yo, that ain't no ship I've heard of"
+            )
+        return value
      
     #DRF way
     # def save(self, validated_data):
@@ -45,27 +52,6 @@ class MyShipSerializer(WritableNestedModelSerializer): #like CartItem
     #     spaceship_model = SpaceShip.objects.create(**spaceship_data)
     #     my_ship = MyShip.objects.create(spaceship=spaceship, **validated_data)
     #     return my_ship
-
-
-
-# class AddMyShipSerializer(serializers.ModelSerializer):
-
-#     def save(self, **kwargs):
-#         medina_dock_id = self.context['medina_dock_id']
-        
-
-#         # try:
-#         #     my_ship = MyShip.objects.get(
-#         #         medina_dock_id = medina_dock_id,
-#         #     )
-#         #     my_ship.save()
-#         #     self.instance = my_ship
-#         # except MyShip.DoesNotExist:
-            
-
-#     class Meta:
-#         model = MyShip
-#         fields = ['id', 'ship_name', 'spaceship', 'captain', 'xo']
 
 
 class MedinaDockSerializer(serializers.ModelSerializer): #like Cart
