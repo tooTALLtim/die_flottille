@@ -26,10 +26,10 @@ class Crew(models.Model):
     """
 
     class StaffLevel(models.TextChoices):
+        UNASSIGNED = 'unassigned', 'UNASSIGNED'
         ADMIRAL = 'admiral', 'ADMIRAL'
         CAPTAIN = 'captain', 'CAPTAIN'
-        EXECUTIVE_OFFICER = 'xo', 'XO'
-        UNASSIGNED = 'unassigned', 'UNASSIGNED'
+        EXECUTIVE_OFFICER = 'XO', 'XO'
         #put more choices here after testing
 
 
