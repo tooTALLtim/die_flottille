@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'die_flottille',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': 'datab4s3!'
+        'PASSWORD': 'supersecretpassword!'
     }
 }
 
